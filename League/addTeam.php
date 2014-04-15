@@ -114,6 +114,26 @@
 
     if ($errorMessage == ""){
         // No errors occured. Continue onwards.
+
+		/* Email each user and let them know they have been registered
+
+		   Reserved Variables: $summoner - Summoner being emails
+							   $team - The team name
+							   $password - The team password
+		*/
+		include '../emailProtocol.php';
+		$summoner = $captain;
+		mail($captEmail.$extension,$teamSubject, $teamMessage, $headers); // Captain's Email
+		$summoner = $summoner2;
+		mail($summ2email.$extension,$teamSubject, $teamMessage, $headers); // Summoner 2's Email
+		$summoner = $summoner3;
+		mail($summ3email.$extension,$teamSubject, $teamMessage, $headers); // Summoner 3's Email
+		$summoner = $summoner4;
+		mail($summ4email.$extension,$teamSubject, $teamMessage, $headers); // Summoner 4's Email
+		$summoner = $summoner5;
+		mail($summ5email.$extension,$teamSubject, $teamMessage, $headers); // Summoner 5's Email
+
+		// Check for escape characters in the input entries
 		$team = verify($team);
 		$password = verify($password);
         $captain = verify($captain);

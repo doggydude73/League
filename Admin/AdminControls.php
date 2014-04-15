@@ -52,6 +52,20 @@
 				<br>
 
 				<div class="dropdown">
+					<a class="btn dropdown-toggle btn-warning btn-large" data-toggle="dropdown"	href="#">
+						Mumble Services
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a onclick="verify(6)">Start the Server</a></li>
+						<li><a onclick="verify(7)">Restart the Server</a></li>
+						<li><a onclick="verify(8)">Stop the Server</a></li>
+					</ul>
+				</div>
+
+				<br>
+
+				<div class="dropdown">
 					<a class="btn dropdown-toggle btn-danger btn-large" data-toggle="dropdown" href="#">
 						Clear Databases
 						<span class="caret"></span>
@@ -62,7 +76,6 @@
 						<li><a onclick ="verify(5)">Delete the Brackets</a></li>
 					</ul>
 				</div>
-
             </div>
         </div>
         <div class="background"></div>
@@ -114,6 +127,30 @@
 			if (r == true)
 			{
 				window.location = "../Functions/deleteBrackets.php";
+			}
+		}else if (location == 6)
+		{
+			// 6 - Start the Murmur Server provided it is down
+			var r = confirm("Would you like to start Murmur? If the server is already up, it will not restart.");
+			if (r == true)
+			{
+				window.location = "../Functions/startMurmur.php";
+			}
+		}else if (location == 7)
+		{
+			// 7 - Restart the Murmur Server if it is Up
+			var r = confirm("Would you like to restart Murmur? Please note you will disconnect all currently connected users.");
+			if (r == true)
+			{
+				window.location = "../Functions/restartMurmur.php";
+			}
+		}else if (location == 8)
+		{
+			// 8 - Delete the Tournament Brackets, Team Listings, and Mumble Server Channels
+			var r = confirm("Would you like to shut down Murmur? Please note you will disconnect anyone current connected.");
+			if (r == true)
+			{
+				window.location = "../Functions/stopMurmur.php";
 			}
 		}
 	}

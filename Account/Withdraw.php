@@ -1,6 +1,7 @@
 <?php
 	include '../Layout.php';
 	include '../databaseConnection.php';
+	include '../emailProtocol.php';
 
     $db = mysql_connect($connection,$dbUsername,$dbPassword);
     if (!$db){die('Could not connect to database');}
@@ -8,7 +9,20 @@
 
 	$gameType = $_SESSION['entry'][0];
 	$teamName = $_SESSION['entry'][1];
+	$emailAddr = "";
+	$summoner = $teamName; // For ARAM Withdrawl
 	$teamName = verify($teamName);
+
+	// Get the email address of the user removing themself and email according
+	if ($gameType == "ARAM"){
+		$query = "Select Email FROM signup WHERE Summoner = '$teamName'";
+		$sql = mysql_query($query, $db);
+		$emailAddr = $sql[0];
+		mail($emailAddr.$extension, $aramWithdrawSubject, $aramWithdrawMessage, $headers);
+	}else if ($gameType == "Premade"){
+		$query = "Select  FROM premade WHERE TeamName = '$teamName'";
+		mysql_query($query, $db);
+	}
 
 	// Remove from the database based on the gametype
 	if ($gameType == "ARAM"){

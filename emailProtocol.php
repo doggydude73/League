@@ -6,16 +6,48 @@
 	summoner - ... - The summoner name of the user receiving this email
 	team - ... - The team the user has signed up to be on (Team Signups Only)
 	password - ... - The team password (Team Signups Only)
+	oldSummonerName - ... - Old summoner name in summoner name changes
+	newSummonerName - ... - New summoner name in summoner name changes
+	teamName - ... - Team Name of the team where members are being changed
 
 	****** Different included information in the file *******
-
 	extension - mtu.edu - Email extension required by all entered emails
 	from - MTU League of Legends Club - Where the address is coming from. Covers up the administrator's email address
 	headers - From:MTU League of Legends Club - Adds the header directly to the email being set
-	aramSubject - Successful ARAM Tournament Registration - The subject line in the email being sent
-	aramMessage - ... - The body and closing of the message sent to the email of the summoner registered 
-	teamSubject - Successful Tournament Registration - The subject line in the email being sent
-	teamMessage - .. - The body and closing of the message sent to the email of each summoner registered into the premade 5's team
+
+	****** Subject and Messages for different function on the site *******
+	aramSubject - Successful ARAM Tournament Registration - The subject line in the email being sent (ARAM Registration)
+	aramMessage - ... - The body and closing of the message sent to the email of the summoner registered (ARAM Registration)
+
+	teamSubject - Successful Tournament Registration - The subject line in the email being sent (Team Registration)
+	teamMessage - .. - The body and closing of the message sent to the email of each summoner registered into the premade 5's team (Team Registration)
+
+	aramWithdrawSubject - ... - Subject header sent to the person withdrawing from the ARAM Tournament (ARAM Withdrawl Feature)
+	aramWithdrawMessage - ... - Message sent to the person withdrawing from the ARAM Tournament (ARAM Withdrawl Feature)
+
+	teamMemberRemovalSubject - ... - Subject header sent to the member being removed from a team (Team Member Change Feature) NYI
+	teamMemberRemovalMessage - ... - Message sent to the member being removed from a team (Team Member Change Feature)
+
+	teamMemberAdditionSubject - ... - Subject header sent to the member being added to a team (Team Member Change Feature) NYI
+	teamMemberAdditionMessage - ... - Message sent to the member being added to a team (Team Member Change Feature)
+
+	teamNameChangeSubject - ... - Subject header sent to all team members regarding a change in team name (Team Name Change Feature) NYI
+	teamNameChangeMessage - ... - Message sent to all team members regarding a change in the team name (Team Name Change Feature)
+
+	siteRegisterSubject - ... - Subject header sent to new registrants on the website (Site Registration) NYI
+	siteRegisterMessage - ... - Message sent to the new registrants on the website (Site Registration)
+
+	sitePasswordChangeSubject - ... - Subject header for the change of password on an account (Site Password Change Feature) NYI
+	sitePasswordChangeMessage - ... - Message sent notifying the user of a change in password on their account (Site Password Change Feature)
+
+	siteSummonerChangeSubject - ... - Subject header for the change of summoner name on the account (Site Summoner Name Change Feature) NYI
+	siteSummonerChangeMessage - ... - Message sent notifying the user of a change in summoner name on the account (Site Summoner Name Change Feature)
+
+	siteEmailChangeOldSubject - ... - Subject header for the change of email on the account (Site Email Change Feature) NYI
+	siteEmailChangeNewSubject - ... - Message sent to the old email notifying in regards to a change of email (Site Email Change Feature)
+
+	siteEmailChangeNewSubject - ... - Subject header for the change of email on the account (Site Email Change Feature) NYI
+	siteEmailChangeNewMessage - ... - Message sent to the new email notifying in regards to a change of email (Site Email Change Feature)
 
 	************************************/
 
@@ -56,35 +88,6 @@ MTU League of Legends E-Board and Site Administrator
 Team Name:".$team."
 Password:".$password;
 
-	// ARAM Change Summoner
-	$aramSummChangeSubject = "ARAM Summoner Name Change";
-	$aramSummChangeMessage = "Dear ".$summoner.",
-
-This email is being sent to you in regards to a recent change of summoners name filed for the upcoming tournament. Your old summoner's name was ".$oldSummonerName." and has since been updated to ".$currentSummoner.".  If you did not authorize this change, please contact the server administrator to get things fixed.
-
-THank you for your changes.
-
-GLHF,
-MTU League of Legends E-Board and Site Administrator";
-
-	// ARAM Change Email Old
-	$aramEmailOldSubject = "ARAM Email Change";
-	$aramEmailOldMessage = "Dear ".$summoner.",
-
-This email is being sent to you in regards to a recent change of email address on our server for the upcoming tournament.  If you have not authorized this change in email address, please notify the site administrator immediately to have this fixed.  Thank you for your understand.
-
-Sincerely,
-MTU League of Legends Site Administrator";
-
-	// ARAM Change Email New
-	$aramEmailNewSubject = "ARAM Email Change";
-	$aramEmailNewSubject = "Dear ".$summoner.",
-
-This email is being sent to you in regards to a recent change of email address on our server for the upcoming tournament. If this does not apply to you, please disregard this email and we appologize for the mistake.
-
-Sincerely,
-MTU League of Legends Site Administrator";
-
 	// ARAM Withdrawl
 	$aramWithdrawSubject = "ARAM Tournament Withdrawl";
 	$aramWithdrawMessage = "Dear ".$summoner.",
@@ -96,7 +99,7 @@ If you did not file for this withdrawl, please contact the Site Administrator as
 Sincerely,
 MTU League of Legends E-Board and Site Administrator";
 
-	// TeamMemberRemoval
+	// Team Member Removal
 	$teamMemberRemovalSubject = "Team Member Removal";
 	$teamMemberRemovalMessage = "Dear ".$summoner.",
 
@@ -107,7 +110,7 @@ If you believe this is an issue with the system malfunctioning, please contact t
 Thanks,
 MTU League of Legends Site Administrator";
 
-	// TeamMemberAdd
+	// Team Member Add
 	$teamMemberAdditionSubject = "Team Member Addition";
 	$teamMemberAdditionMessage = "Dear ".$summoner.",
 
@@ -120,7 +123,7 @@ Good luck in the upcoming tournament.
 GLHF,
 MTU League of Legends E-Board and Site Administrator";
 
-	// TeamEmailChange
+	// Team Name Change
 	$teamNameChangeSubject = "Team Name Changed";
 	$teamNameChangeMessage = "Dear ".$summoner.".
 
